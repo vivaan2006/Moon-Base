@@ -1,0 +1,88 @@
+#Alien Server
+
+import socket
+
+# Create a TCP/IP socket
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# Connect the socket to the server
+
+server_address = ('localhost', 10000)
+print('connecting to {} port {}'.format(*server_address))
+sock.connect(server_address)
+
+try:
+    # Send the USER value
+    
+    user = 'USER\n'.encode()
+    sock.sendall(user)
+
+    # Receive the response
+    
+    data = sock.recv(1024)
+    print('received: {}'.format(data.decode()))
+
+    # Send the aliensignal value
+    
+    aliensignal = 'aliensignal\n'.encode()
+    sock.sendall(aliensignal)
+
+    # Receive the response
+    
+    data = sock.recv(1024)
+    print('received: {}'.format(data.decode()))
+
+    # Send the PASS value
+    
+    password = 'PASS\n'.encode()
+    sock.sendall(password)
+
+    # Receive the response
+    
+    data = sock.recv(1024)
+    print('received: {}'.format(data.decode()))
+
+    # Send the unlockserver value
+    
+    unlockserver = 'unlockserver\n'.encode()
+    sock.sendall(unlockserver)
+
+    # Receive the response
+    
+    data = sock.recv(1024)
+    print('received: {}'.format(data.decode()))
+
+    # Send the SEND value
+    
+    send = 'SEND\n'.encode()
+    sock.sendall(send)
+
+    # Receive the response
+    
+    data = sock.recv(1024)
+    print('received: {}'.format(data.decode()))
+
+    # Send the moonbase value
+    
+    moonbase = 'moonbase\n'.encode()
+    sock.sendall(moonbase)
+
+    # Receive the response
+    
+    data = sock.recv(1024)
+    print('received: {}'.format(data.decode()))
+
+    # Send the END value
+    
+    end = 'END\n'.encode()
+    sock.sendall(end)
+
+    # Receive the response
+    
+    data = sock.recv(1024)
+    print('received: {}'.format(data.decode()))
+
+finally:
+    print('closing socket')
+    sock.close()
