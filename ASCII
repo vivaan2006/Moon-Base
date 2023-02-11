@@ -1,0 +1,3 @@
+for decimal_value in range(49, 128):
+    character = chr(decimal_value)
+    print(f"{decimal_value}: {character}")
