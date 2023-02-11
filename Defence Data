@@ -1,0 +1,12 @@
+import xml.etree.ElementTree as ET
+
+root = ET.Element("root")
+
+countries = ["USA", "Mexico", "Panama", "Canada", "France"]
+
+for country in countries:
+    country_element = ET.SubElement(root, "country")
+    country_element.set("name", country)
+
+tree = ET.ElementTree(root)
+tree.write("/tmp/vulnerable-countries.xml")
