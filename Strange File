@@ -1,0 +1,5 @@
+with open("/tmp/alien-signal.txt", "r")as file:
+    contents = file.read()
+    print(contents)
+    
+ #z56e04CZhHLv1R3KAeus
