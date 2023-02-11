@@ -1,0 +1,28 @@
+#Unlocking the message
+
+#potential solution 1. doesnt allow to import requests for some reason
+
+import requests
+
+for key in range(5500, 5601):
+    headers = {'x-api-key': str(key)}
+    response = requests.get('http://127.0.0.1:8082', headers=headers)
+
+    if response.status_code == 200:
+        print(response.text)
+        break
+        
+#potential solution 2, doesnt allow this either
+
+import http.client
+
+conn = http.client.HTTPConnection("127.0.0.1:8082")
+
+headers = { 'x-api-key': '5500' }
+
+conn.request("GET", "/", headers=headers)
+
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode("utf-8"))
